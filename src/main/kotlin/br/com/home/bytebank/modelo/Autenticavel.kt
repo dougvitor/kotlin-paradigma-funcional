@@ -1,3 +1,5 @@
+package br.com.home.bytebank.modelo
+
 interface Autenticavel {
 
     val senha: Int

@@ -1,8 +1,10 @@
+package br.com.home.bytebank.modelo
+
 class Desenvolvedor(
     nome: String,
     cpf: String,
     salario: Double
-):Funcionario(
+): Funcionario(
     nome = nome,
     cpf = cpf,
     salario = salario

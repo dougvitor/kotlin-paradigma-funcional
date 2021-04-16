@@ -1,13 +1,15 @@
+package br.com.home.bytebank.modelo
+
 abstract class ContaTransferivel(
-    titular: String,
+    titular: Cliente,
     numero: String,
-):Conta(
+): Conta(
     titular = titular,
     numero = numero
 ), Transferivel {
 
     override fun tranfere(valor: Double, contaDestino: Conta): Boolean {
-        println("Transferindo da Conta do(a) ${this.titular} para a conta do(a) ${contaDestino.titular} ")
+        println("Transferindo da conta de ${this.titular.nome} para a conta de ${contaDestino.titular.nome} ")
 
         if (this.saldo < valor) return false
 

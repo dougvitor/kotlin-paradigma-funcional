@@ -1,10 +1,12 @@
+package br.com.home.bytebank.modelo
+
 class Diretor(
     nome: String,
     cpf: String,
     salario: Double,
     senha: Int,
     plr: Double = salario
-):FuncionarioAdmin(
+): FuncionarioAdmin(
     nome = nome,
     cpf = cpf,
     salario = salario,

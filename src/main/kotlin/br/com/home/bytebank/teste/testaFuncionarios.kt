@@ -1,3 +1,5 @@
+import br.com.home.bytebank.modelo.*
+
 fun testaFuncionarios() {
     val desenvolvedor = Desenvolvedor(
         cpf = "354.851.618-00",

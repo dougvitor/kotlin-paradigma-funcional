@@ -1,5 +1,7 @@
+package br.com.home.bytebank.modelo
+
 abstract class Conta (
-             val titular: String,
+             val titular: Cliente,
              var numero: String,
              val gerente: String = "Default"
 ) {
@@ -8,6 +10,16 @@ abstract class Conta (
     var saldo = 0.0
         protected set
 
+    //Object declarations
+    companion object  {
+        var total = 0
+            private set
+    }
+
+    init{
+        total++
+    }
+
 //    constructor(titular: String, numero: String){
 //        this.titular = titular
 //        this.numero = numero
@@ -15,12 +27,12 @@ abstract class Conta (
 
 
     fun deposita(valor: Double) {
-        println("Depositando na Conta do ${this.titular}")
+        println("Depositando na conta de ${this.titular.nome}")
 
         if (valor < 0) println("Valor atribuido não pode ser negativo")
         else {
             this.saldo += valor
-            println("Novo saldo da conta de ${this.titular}: ${this.saldo}\n")
+            println("Novo saldo da conta de ${this.titular.nome}: ${this.saldo}\n")
         }
 
     }

@@ -1,3 +1,6 @@
+import br.com.home.bytebank.modelo.*
+import novoModelo.Cliente as NovoCliente
+
 fun testaAutenticacao() {
     val gerente = Gerente(
         cpf = "111.111.111-11",
@@ -23,4 +26,13 @@ fun testaAutenticacao() {
     sistemaInterno.entrar(admin = gerente, senha = 1234)
     sistemaInterno.entrar(senha = 1234, admin = diretor)
     sistemaInterno.entrar(admin = cliente, senha = 5678)
+
+    //Object expressions
+    val novoCliente = object: Autenticavel{
+        val nome = "Martinho"
+        val cpf = "777.777.777-77"
+        override val senha = 1000
+    }
+
+    println("Object autenticavel: autentica ${novoCliente.autentica(senha = 1001)}\n")
 }

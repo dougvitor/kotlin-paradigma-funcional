@@ -1,1 +1,1 @@
-# kotlin-exceptions-referencias-nulas
+# Kotlin: lidando com exceptions e referências nulas

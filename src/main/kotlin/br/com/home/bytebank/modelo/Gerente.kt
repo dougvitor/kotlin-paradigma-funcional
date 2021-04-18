@@ -30,7 +30,7 @@ class Gerente(
     override val bonificacao : Double get() =  this.salario
 
     override fun autentica(senha: Int): Boolean{
-        return super<Autenticavel>.autentica(senha = senha)
+        return super.autentica(senha = senha)
     }
 
 }

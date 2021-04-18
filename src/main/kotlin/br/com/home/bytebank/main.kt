@@ -1,26 +1,37 @@
-import br.com.home.bytebank.modelo.Cliente
+package br.com.home.bytebank
+
 import br.com.home.bytebank.modelo.Endereco
-import br.com.home.bytebank.teste.executar
+import br.com.home.bytebank.teste.testaTryIfExpression
+import testaAutenticacao
+import testaContasDiferentes
 
-fun main(){
+fun main() {
 
-    testaAutenticacao()
-    testaFuncionarios()
+    testaTryIfExpression()
+
     testaContasDiferentes()
-    executar()
 
-    val enderecoAntigo = Endereco(logradouro = "Rua Itauna", numero = 1050)
-    val enderecoAtual = Endereco(logradouro = "Rua Itauna", numero = 1050)
-    println(enderecoAntigo)
-    println("${enderecoAntigo.javaClass}@${Integer.toHexString(enderecoAntigo.hashCode())}\n")
+    val enderecoNulo: Endereco? = Endereco(logradouro = "Rua Itauna", complemento = "apto")
 
-    println("$enderecoAntigo")
-    println("$enderecoAtual\n")
+    val logradouro: String? = enderecoNulo?.logradouro
 
-    println(enderecoAntigo.equals(enderecoAtual))
-    println(enderecoAtual.hashCode().equals(enderecoAntigo.hashCode()))
-    println(enderecoAntigo.equals(Cliente(nome = "Juão", cpf = "355.555.555-00", senha = 1)))
+    val tamanho: Int = enderecoNulo?.complemento?.length ?: throw IllegalStateException("Complemento não pode ser vázio!")
 
+    println(tamanho)
+
+    enderecoNulo.let {endereco: Endereco ->
+        println(endereco.logradouro)
+    }
+
+    val enderecoNaoNulo: Endereco = enderecoNulo!!
+
+    enderecoNaoNulo.complemento
+    enderecoNaoNulo.let {
+        println(it.complemento)
+    }
+
+    val numero: Any = "abc"
+    println(numero as? Int)
 
 }
 

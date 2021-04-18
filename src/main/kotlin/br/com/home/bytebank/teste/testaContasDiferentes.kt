@@ -1,3 +1,5 @@
+import br.com.home.bytebank.exception.FalhaAutenticacaoException
+import br.com.home.bytebank.exception.SaldoInsuficienteException
 import br.com.home.bytebank.modelo.*
 
 fun testaContasDiferentes() {
@@ -7,7 +9,8 @@ fun testaContasDiferentes() {
             nome = "DouglasC",
             cpf = "123.456.789-00",
             senha = 1234
-        )
+        ),
+        senha = 1234
     )
 
     val poupanca = ContaPoupanca(
@@ -16,7 +19,8 @@ fun testaContasDiferentes() {
             cpf = "111.111.111-11",
             senha = 5678
         ),
-        numero = "1001"
+        numero = "1001",
+        senha = 1234
     )
 
     val salario = ContaSalario(
@@ -38,8 +42,27 @@ fun testaContasDiferentes() {
     corrente.saca(valor = 100.00)
     poupanca.saca(valor = 150.00)
 
-    corrente.tranfere(valor = 50.00, contaDestino = poupanca)
-    poupanca.tranfere(valor = 200.00, contaDestino = corrente)
+    try{
+        corrente.tranfere(valor = 10000.00, contaDestino = poupanca)
+        println("Transferência realizada com sucesso!")
+    }catch(e: SaldoInsuficienteException){
+        println("Falha na Transferência: ${e.message}")
+        e.printStackTrace()
+    }catch(e: FalhaAutenticacaoException){
+        println("Falha na Transferência: ${e.message}")
+        e.printStackTrace()
+    }
+
+    try{
+        poupanca.tranfere(valor = 200.00, contaDestino = corrente)
+        println("Transferência realizada com sucesso!")
+    }catch(e: SaldoInsuficienteException){
+        e.printStackTrace()
+        println("Falha na Transferência: ${e.message}")
+    }catch(e: FalhaAutenticacaoException){
+        println("Falha na Transferência: ${e.message}")
+        e.printStackTrace()
+    }
 
     println("Instancia de titular: ${salario.titular}")
     println("Nome do titular: ${salario.titular.nome}")

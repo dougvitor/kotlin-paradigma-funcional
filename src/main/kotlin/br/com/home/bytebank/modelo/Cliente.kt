@@ -3,7 +3,7 @@ package br.com.home.bytebank.modelo
 class Cliente(
     val nome: String,
     val cpf: String,
-    override val senha: Int,
+    val senha: Int,
     var endereco : Endereco = Endereco()
 ): Autenticavel {
 

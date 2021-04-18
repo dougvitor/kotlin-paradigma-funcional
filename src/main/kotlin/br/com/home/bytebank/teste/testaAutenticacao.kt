@@ -31,7 +31,12 @@ fun testaAutenticacao() {
     val novoCliente = object: Autenticavel{
         val nome = "Martinho"
         val cpf = "777.777.777-77"
-        override val senha = 1000
+        var senha = 1234
+
+        override fun autentica(senha: Int): Boolean {
+            println("Nova implementação do autentica")
+           return this.senha == senha
+        }
     }
 
     println("Object autenticavel: autentica ${novoCliente.autentica(senha = 1001)}\n")

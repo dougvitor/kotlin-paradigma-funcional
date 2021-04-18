@@ -4,7 +4,7 @@ abstract class Conta (
              val titular: Cliente,
              var numero: String,
              val gerente: String = "Default"
-) {
+){
     //    var titular = titular
     //    var numero = numero
     var saldo = 0.0

@@ -1,2 +1,2 @@
-# Kotlin: recursos da linguagem com pacotes e composição.
+# Kotlin: lidando com exceptions e referências nulas
 

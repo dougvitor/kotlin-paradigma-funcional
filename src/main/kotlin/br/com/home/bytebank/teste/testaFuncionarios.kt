@@ -2,9 +2,9 @@ import br.com.home.bytebank.modelo.*
 
 fun testaFuncionarios() {
     val desenvolvedor = Desenvolvedor(
-        cpf = "354.851.618-00",
+        cpf = "004.151.818-00",
         nome = "Douglas",
-        salario = 10500.0
+        salario = 1500.0
     )
 
     println("Nome do desenvolvedor: ${desenvolvedor.nome}")

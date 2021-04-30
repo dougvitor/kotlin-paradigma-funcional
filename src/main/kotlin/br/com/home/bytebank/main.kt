@@ -1,39 +1,31 @@
 package br.com.home.bytebank
 
-import br.com.home.bytebank.modelo.Endereco
-import br.com.home.bytebank.teste.testaTryIfExpression
+import br.com.home.bytebank.funcao.PrimeiraFuncao
+import br.com.home.bytebank.funcao.Soma
+import br.com.home.bytebank.teste.exemplosAula01
+import br.com.home.bytebank.teste.exemplosAula02
+import br.com.home.bytebank.teste.exemplosAula03
+import br.com.home.bytebank.teste.*
 import testaAutenticacao
-import testaContasDiferentes
 
 fun main() {
 
-    testaTryIfExpression()
+   exemplosAula01()
 
-    testaContasDiferentes()
+//    exemplosAula02()
 
-    val enderecoNulo: Endereco? = Endereco(logradouro = "Rua Itauna", complemento = "apto")
+//    exemplosAula03()
 
-    val logradouro: String? = enderecoNulo?.logradouro
+//    testaAutenticacao()
 
-    val tamanho: Int = enderecoNulo?.complemento?.length ?: throw IllegalStateException("Complemento não pode ser vázio!")
+//    exemplosAula04()
 
-    println(tamanho)
-
-    enderecoNulo.let {endereco: Endereco ->
-        println(endereco.logradouro)
-    }
-
-    val enderecoNaoNulo: Endereco = enderecoNulo!!
-
-    enderecoNaoNulo.complemento
-    enderecoNaoNulo.let {
-        println(it.complemento)
-    }
-
-    val numero: Any = "abc"
-    println(numero as? Int)
-
+//    exemplosAula05()
 }
+
+
+
+
 
 
 

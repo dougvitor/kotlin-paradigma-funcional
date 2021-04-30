@@ -23,7 +23,13 @@ fun testaAutenticacao() {
     )
 
     val sistemaInterno = SistemaInterno()
-    sistemaInterno.entrar(admin = gerente, senha = 1234)
+    sistemaInterno.entrar(
+        admin = gerente,
+        senha = 1234,
+        autenticado = {
+            println("Realizando o processamento...")
+        }
+    )
     sistemaInterno.entrar(senha = 1234, admin = diretor)
     sistemaInterno.entrar(admin = cliente, senha = 5678)
 

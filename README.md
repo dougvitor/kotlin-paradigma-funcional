@@ -1,2 +1,2 @@
-# Kotlin: lidando com exceptions e referências nulas
+# Kotlin: recursos do paradigma funcional.
 

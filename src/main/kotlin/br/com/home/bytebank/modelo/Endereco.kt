@@ -1,6 +1,6 @@
 package br.com.home.bytebank.modelo
 
-class Endereco(
+data class Endereco(
     var logradouro: String = "",
     var numero: Int = 0,
     var bairro: String = "",
@@ -19,6 +19,14 @@ class Endereco(
             |               estado='$estado', 
             |               cep='$cep', 
             |               complemento='$complemento')""".trimMargin()
+    }
+
+    fun enderecoFormatado(): String {
+        return """
+                $logradouro, $numero - $complemento 
+                $bairro - $cidade - $estado 
+                $cep
+         """.trimIndent()
     }
 
     override fun equals(other: Any?): Boolean {
